@@ -6,10 +6,10 @@ data class Employee (
 )
 
 fun main() {
-    val employee = Employee(21, "Donggeon")
+    val employee = Employee(21, "name")
     println(employee)
 
-    val employee2 = Employee(21, "Donggeon")
+    val employee2 = Employee(21, "name")
     println("Compare result : ${employee2 == employee}")
 
     val employee3 = employee.copy(23)
