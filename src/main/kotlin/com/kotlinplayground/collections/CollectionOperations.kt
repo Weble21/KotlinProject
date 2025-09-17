@@ -34,6 +34,45 @@ fun main() {
     //exploreMap(courseList, devPredicate)
     val courses = exploreFlatMap(courseList, KAFKA)
     println("courses = $courses")
+
+    exploresHashMap()
+    collections_nullablity()
+}
+
+fun collections_nullablity() {
+    var list : MutableList<String>? = null
+    list = mutableListOf()
+    list.add("Dilip")
+    list.forEach {
+        println("Value is $it")
+    }
+
+    val list1 : List<String?> = listOf("Adam", null, "Alex")
+    list1.forEach {
+        println("Value Length is ${it?.length}")
+    }
+}
+
+fun exploresHashMap() {
+    val nameAgeMutableMap = mutableMapOf("Dilip" to 33, "Scooby" to 5, "whiteside" to 21 )
+    nameAgeMutableMap
+        .forEach { (k, v) ->
+            println("Key : $k and the value is $v")
+    }
+    //getOrElse 는 키 값이 존재하지 않으면 뒤에 {} 안에 있는 값을 입력
+    val value = nameAgeMutableMap.getOrElse("Dilip1") {"abc"}
+    println("Value is $value")
+
+    val result = nameAgeMutableMap.contains("Scooby")
+    println("Result is $result")
+
+    val filteredMap = nameAgeMutableMap.filterKeys { it.length > 5 }
+        .map { it.key.uppercase() }
+    println("filteredMap = $filteredMap")
+
+    val maxAge = nameAgeMutableMap
+        .maxByOrNull { it.value }
+    println("maxAge is $maxAge")
 }
 
 fun exploreFlatMap(courseList: MutableList<Course>, kafka: String): List<String> {
