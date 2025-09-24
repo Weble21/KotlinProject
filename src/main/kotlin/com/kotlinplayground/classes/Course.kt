@@ -4,13 +4,13 @@ data class Course(
     var id : Int,
     val name : String,
     val author: String,
-    val courseCategory: CourseCategory = CourseCategory.DEVELOPMENT //DEVELOPMENT가 DEFAULT
+    var courseCategory: CourseCategory = CourseCategory.DEVELOPMENT //DEVELOPMENT가 DEFAULT
 )
 
 enum class CourseCategory {
     DEVELOPMENT,
     BUSINESS,
-    EDSIGN,
+    DESIGN,
     MARKETING
 }
 
